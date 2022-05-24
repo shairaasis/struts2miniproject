@@ -19,7 +19,7 @@
       <s:textfield name="personBean.lastName" label="Last name" /> 
       <s:textfield name="personBean.age"  label="Age"  />
       <s:textfield name="personBean.email"  label ="Email"/> 
-      <s:submit/>
+      <s:submit style="padding: 5px; background-color:#004C64; color: white; border: none;"/>
     </s:form>
   </div>
   </body>

@@ -14,7 +14,7 @@
         <s:form action="Login" namespace="/example">
         <s:textfield name="accountBean.username" />
         <s:password name="accountBean.password" />
-        <s:submit key="submit" />
+        <s:submit key="submit" style="padding: 5px; background-color:#004C64; color: white; border: none;"/>
         </s:form>
     </div>
 
