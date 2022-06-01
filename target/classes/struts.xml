@@ -14,9 +14,9 @@
 
         <action name="register" class="com.example.proj.action.Register" method="execute">
             <interceptor-ref name="defaultStack"/>
-            <result name="success">/thankyou.jsp</result>
             <result name="input">/register.jsp</result>
-            <result name="error">/error.jsp</result>
+            <result name="success">/thankyou.jsp</result>
+            
         </action>
 
         <action name="Login" class="com.example.proj.action.Login" method="execute">
