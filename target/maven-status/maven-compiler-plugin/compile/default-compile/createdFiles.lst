@@ -1,4 +1,5 @@
 com\example\proj\action\Register.class
+com\example\proj\action\Login.class
 com\example\proj\model\MessageStore.class
 com\example\proj\action\HelloWorldAction.class
 com\example\proj\action\List.class

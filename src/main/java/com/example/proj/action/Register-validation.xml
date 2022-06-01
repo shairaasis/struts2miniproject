@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+    
+    <field name="personBean.username">
+        <field-validator type="requiredstring">
+            <message>Username is required.</message>
+        </field-validator>
+    </field>
+
+    <field name="personBean.password">
+        <field-validator type="requiredstring">
+            <message>Password is required.</message>
+        </field-validator>
+        <field-validator type="regex">
+            <param name="regex">[A-Z,a-z,0-9]{8}</param>
+            <message>
+                Invalid password, it can only contain [A-Z,a-z,0-9] and should be of 8 characters.
+            </message>
+      </field-validator>
+    </field>
+    <field name="personBean.email">
+            <field-validator type="requiredstring">
+                <message>Email is required.</message>
+            </field-validator>
+            <field-validator type="email">
+                <message>Email should be a valid email.</message>
+            </field-validator>
+    </field>
+    <field name="personBean.firstName">
+            <field-validator type="requiredstring">
+                <message>First name is required.</message>
+            </field-validator>
+    </field>
+    <field name="personBean.lasttName">
+            <field-validator type="requiredstring">
+                <message>Last name is required.</message>
+            </field-validator>
+    </field>
+     <field name="personBean.age">
+            <field-validator type="regex">
+                    <param name="regex">[0-9]{2}</param>
+                    <message>
+                        Age must be an integer.
+                    </message>
+            </field-validator>
+            <field-validator type="int">
+                <param name="min">5</param>  
+                <param name="max">60</param>  
+                <message>Age must be between ${min} and ${max}</message>
+            </field-validator>
+    </field>
+    
+</validators>

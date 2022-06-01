@@ -11,13 +11,11 @@
     <s:include value="navbar.jsp"/>
     <div class="container">
         <h1>Login Page</h1>
-        <s:form action="Login" namespace="/example">
+        <s:form action="Login">
         <s:textfield name="accountBean.username" />
         <s:password name="accountBean.password" />
-        <s:submit key="submit" style="padding: 5px; background-color:#004C64; color: white; border: none;"/>
+        <s:submit key="submit" value="Login" style="padding: 5px; background-color:#004C64; color: white; border: none;"/>
         </s:form>
     </div>
-
-    
 </body>
 </html>

@@ -7,10 +7,13 @@
     <title>Registration Successful</title>
   </head>
   <body>
-    <h3>Thank you for registering for a prize.</h3>
+    <s:include value="navbar.jsp"/>
+    <main>
+    <h3>Thank you for registering an account.</h3>
 
     <p>Your registration information: <s:property value="personBean" /> </p>
 
     <p><a href="<s:url action='index' />" >Return to home page</a>.</p>
+    </main>
   </body>
 </html>

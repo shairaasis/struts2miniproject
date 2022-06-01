@@ -10,57 +10,46 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class Login extends ActionSupport {
 
-    static Person person=new Person();
-    private Person accountBean;
+    private static Person accountBean;
     public String execute() throws Exception {
         accountBean = getAccountBean();
-        if(validate(accountBean.getUsername(), accountBean.getPassword()) != null){  
-            setAccountBean(person);
+        if(validate(accountBean.getUsername(), accountBean.getPassword())){  
             return "success";  
         }  
         else{  
             return "error";  
         } 
     }
-    public static String validate(String username,String password){  
-        Connection con = null;
-        PreparedStatement ps = null;
-        try{  
-            Class.forName("com.mysql.jdbc.Driver");  
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb?useTimezone=true&serverTimezone=UTC","root","password");  
+    public static boolean validate (String username,String password){  
+        boolean status=false;  
+         try{  
+          Class.forName("com.mysql.jdbc.Driver");  
+          Connection con=DriverManager.getConnection(  
+          "jdbc:mysql://localhost:3306/mydb?useTimezone=true&serverTimezone=UTC","root","password");  
             
-            if (con != null) {
-                ps = con.prepareStatement("select * from users where username=? and password=?");  
-                ps.setString(1,username);  
-                ps.setString(2,password);  
-                ResultSet rs=ps.executeQuery();  
+          PreparedStatement ps=con.prepareStatement(  
+            "select * from users where username=? and password=?");  
+          ps.setString(1,username);  
+          ps.setString(2,password);  
+          ResultSet rs=ps.executeQuery();
+          status=rs.next();   
+            accountBean.setUserId(rs.getInt(1));
+            accountBean.setUserType(rs.getString(4));
+            accountBean.setUsername(rs.getString(2));
+            accountBean.setLastName(rs.getString(7));   
+            accountBean.setFirstName(rs.getString(6)); 
+            accountBean.setEmail(rs.getString(9));
+            accountBean.setAge(rs.getInt(8)); 
+         }catch(Exception e){e.printStackTrace();}  
+        return status;  
+    } 
 
-                while(rs.next()){
-                    person.setUserId(rs.getInt(1));
-                    person.setUserType(rs.getString(4));
-                    person.setUsername(rs.getString(2));
-                    person.setLastName(rs.getString(7));   
-                    person.setFirstName(rs.getString(6)); 
-                    person.setEmail(rs.getString(9));
-                    person.setAge(rs.getInt(8)); 
-                }
-            }
-
-        }catch (Exception e) {
-
-        } finally {
-           if (ps != null) try { ps.close(); } catch (SQLException ignore) {}
-           if (con != null) try { con.close(); } catch (SQLException ignore) {}
-        }
-
-        return SUCCESS;  
-    }
 
     public Person getAccountBean() {
         return accountBean;
     }
 
     public void setAccountBean(Person accountBean) {
-        this.accountBean = accountBean;
+        Login.accountBean = accountBean;
     }
 }
