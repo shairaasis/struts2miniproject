@@ -1,5 +1,4 @@
 package com.example.proj.action;
-
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.sql.Connection;                
@@ -58,6 +57,7 @@ public class List extends ActionSupport {
 
                 while(rs.next()){  
                     Person person=new Person();
+                    person.setUserId(rs.getInt(1));
                     person.setUsername(rs.getString(2));
                     person.setLastName(rs.getString(7));   
                     person.setFirstName(rs.getString(6)); 

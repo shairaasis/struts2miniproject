@@ -3,7 +3,6 @@
 pageEncoding="UTF-8" %> <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
   <head>
-    <link rel="stylesheet" href="css/styles.css">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Alta Sofia Institute</title>
   </head>

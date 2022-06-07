@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="css/styles.css">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Register</title>
   </head>
@@ -21,6 +20,6 @@
       <s:textfield name="personBean.email"  label ="Email"/> 
       <s:submit value="Register" style="padding: 5px; background-color:#004C64; color: white; border: none;"/>
     </s:form>
-  </div>
+    </div>
   </body>
 </html>

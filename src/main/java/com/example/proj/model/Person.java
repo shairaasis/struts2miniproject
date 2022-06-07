@@ -1,14 +1,75 @@
 package com.example.proj.model;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 public class Person {
     public static Person accountBean;
-    private String firstName, username, password;
+    private String username;
+    private String password;
+    private String firstName;
     private String lastName;
     private String email;
     private int age, userId;
     private String userType;
 
     public Person() {}
+
+    public Person(String username, String password, String firstName,String lastName, String email, int age) {
+        this.username = username;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.age = age;
+    }
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (obj == this) {
+            return true;
+        }
+        if (obj.getClass() != getClass()) {
+            return false;
+        }
+        Person rhs = (Person) obj;
+        return new EqualsBuilder()
+                .append(this.username, rhs.username)
+                .append(this.password, rhs.password)
+                .append(this.firstName, rhs.firstName)
+                .append(this.lastName, rhs.lastName)
+                .append(this.email, rhs.email)
+                .append(this.age, rhs.age)
+                .isEquals();
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder() 
+                .append(username)
+                .append(password)
+                .append(firstName)
+                .append(lastName)
+                .append(email)
+                .append(age)
+                .toHashCode();
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this)
+                .append("username", username)
+                .append("password", password)
+                .append("firstName", firstName)
+                .append("lastName", lastName)
+                .append("email", email)
+                .append("age",age)
+                .toString();
+    }
+
 
     public String getFirstName() {
         return firstName;
@@ -85,8 +146,8 @@ public class Person {
         this.userId = userId;
     }
 
-    public String toString() {
+    /*public String toString() {
         return "Username: " + getUsername() + "Password: " + getPassword() + "First Name: " + getFirstName() + " Last Name:  " + getLastName() + 
         " Email:      " + getEmail() + " Age:      " + getAge() ;
-    }
+    }*/
 }

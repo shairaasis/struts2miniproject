@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class Login extends ActionSupport {
+    public String errorMessage; 
 
     private static Person accountBean;
     public String execute() throws Exception {
@@ -17,6 +18,7 @@ public class Login extends ActionSupport {
             return "success";  
         }  
         else{  
+            errorMessage = "Login failed. Username and/or password is incorrect.";
             return "error";  
         } 
     }

@@ -8,8 +8,6 @@ pageEncoding="UTF-8" %>
   <head>
     <sx:head />
     <title>User Records</title>
-    <link rel="stylesheet" href="css/styles.css">
-
     <style>
         #customers {
           font-family: Arial, Helvetica, sans-serif;
@@ -38,7 +36,9 @@ pageEncoding="UTF-8" %>
   <body>
     <s:include value="navbar.jsp"/>
       <div class="container">
-        <s:form action="displayUser">
+        <h3>All Users Records</h3>  
+        <s:form action="displayUser" 
+        style="float: right; display: inline;">
         <sx:autocompleter
             label="Search a user"
             list="listOfNames"
@@ -46,7 +46,7 @@ pageEncoding="UTF-8" %>
         /><s:submit style="padding: 5px; background-color:#004C64; color: white; border: none;"/>
         </s:form>
 
-        <h3>All Users Records:</h3>  
+        
          
         <table id="customers">
             

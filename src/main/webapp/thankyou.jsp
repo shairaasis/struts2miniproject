@@ -9,11 +9,8 @@
   <body>
     <s:include value="navbar.jsp"/>
     <main>
-    <h3>Thank you for registering an account.</h3>
-
-    <p>Your registration information: <s:property value="personBean" /> </p>
-
-    <p><a href="<s:url action='index' />" >Return to home page</a>.</p>
+    <h3>Thank you for registering an account <s:property value="personBean.firstName" />.</h3> 
+    <p><s:a href="login.jsp">Continue to Login.</s:a></p> 
     </main>
   </body>
 </html>

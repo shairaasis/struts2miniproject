@@ -13,5 +13,8 @@
     <p>Login error. No account found.</p>
 
     <p><a href="<s:url action='index' />" >Return to home page</a>.</p>
+
+    <h1>SEARCH IS BLANK</h1>
+
   </body>
 </html>
