@@ -9,13 +9,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.example.proj.model.Person;
+import com.mysql.cj.xdevapi.Result;
 
 
 public class AccountsRepository {
+    private String error = "Random";
     private static Map<String, Person> map = new HashMap<String, Person>();
     Connection connection = null;
     PreparedStatement preparedStatement = null;
-   
+    String result;
     public AccountsRepository(){
       
     }
@@ -51,22 +53,48 @@ public class AccountsRepository {
             statement.executeUpdate(sql);
             statement.close();
             connection.close();
+            
         } 
         return map;
     }
-
+    //GET accounts/id/
     public Person getAccountById(String id) {
         return map.get(id);
     }
-
+    //delete accounts/id/
+    public String remove(String id) throws Exception{
+        connection = connectToDb();
+        if(connection != null){
+            Statement statement = connection.createStatement();
+            String sql = "DELETE FROM users where user_id = '"+id+"'";
+            statement.executeUpdate(sql);
+            statement.close();
+            connection.close();
+        }
+        return result;
+    }
+    //update accounts/id/
+    public Map<String, Person> update(String id, Person account) throws Exception{
+        connection = connectToDb();
+        if(connection != null){
+            Statement statement = connection.createStatement();
+            String sql = "UPDATE users SET first_name = '"+account.getFirstName()+"', last_name = '"+account.getLastName()+"' WHERE user_id = '"+id+"'";
+            statement.executeUpdate(sql);
+            statement.close();
+            connection.close();
+        }
+        return map;
+    }
+    
    public Connection connectToDb(){
     try {
         String URL = "jdbc:mysql://localhost:3306/mydb?useTimezone=true&serverTimezone=UTC";
         Class.forName("com.mysql.jdbc.Driver");
         connection = DriverManager.getConnection(URL, "root", "password");
-     } catch (Exception e) {
-
-     } 
+    } catch (Exception e) {
+        error = e.toString();
+        
+    } 
     return connection;
    }
 }

@@ -13,6 +13,6 @@ pageEncoding="UTF-8" %> <%@ taglib prefix="s" uri="/struts-tags" %>
           <s:a href="services.jsp">Services</s:a>
           <s:a href="about.jsp">About</s:a>
           <s:a href="index.jsp">Home</s:a>
-      </div>
+        </div>
     </body>
 </html>

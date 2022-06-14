@@ -13,7 +13,8 @@
     <constant name="struts.mapper.class" value="org.apache.struts2.dispatcher.mapper.PrefixBasedActionMapper" />
     <constant name="struts.mapper.prefixMapping" value="/api:rest,:struts"/>
     <constant name="struts.rest.namespace" value="/api" />
-
+    <constant name="struts.rest.content.restrictToGET" value="false"/>
+    
     <package name="basicstruts2" extends="struts-default">
         <action name="index">
             <result>/index.jsp</result>

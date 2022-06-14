@@ -21,6 +21,7 @@ public class AccountsController implements ModelDriven<Object> {
         }
        
     }
+    //Return all user records
     public HttpHeaders index() {
         model = map;
         return new DefaultHttpHeaders("index").disableCaching();
@@ -31,15 +32,31 @@ public class AccountsController implements ModelDriven<Object> {
 		return (model != null ? model : account);
 	}
 
-
+    //GET accounts/id/ by id
     public String getId() {
 
         return id;
+	}
+
+    //DELETE acount/id/
+    //DELETE /accounts/id
+	public HttpHeaders destroy() throws Exception {
+		System.out.println("DELETE \t /account:" +getId());
+		String result = accountRepository.remove(getId());
+		return new DefaultHttpHeaders(result);
+	}
+    //PUT /accounts/id
+	public HttpHeaders update() throws Exception {
+		account = map.get(getId());
+		System.out.println("PUT \t /account" +getId());
+		Map<String, Person> accounts = accountRepository.update(getId(), account);
+		return new DefaultHttpHeaders("update");
 	}
 	public void setId(String id) {
 		model = accountRepository.getAccountById(id);
 		this.id = id;
 	}
+    
 	public HttpHeaders show() {
 		model = accountRepository.getAccountById(getId());
 		return new DefaultHttpHeaders("show");
@@ -60,11 +77,12 @@ public class AccountsController implements ModelDriven<Object> {
     public void setAccountRepository(AccountsRepository accountRepository) {
         this.accountRepository = accountRepository;
     }
-    /*POST */
+
+    /*POST method, insert data into database*/
     public HttpHeaders create() throws Exception {
         model = accountRepository.save(account); 
         System.out.println(account.toString());
-        //System.out.println("POST \t /users" +account.getUserId());
+        System.out.println("POST \t /users" +account.getUserId());
         return new DefaultHttpHeaders("create");
     }
 
