@@ -42,13 +42,23 @@
             <result name="success">/displayUser.jsp</result>
             <result name="error">/error.jsp</result>
         </action>
-        
+
+        <action name="news" class="com.example.proj.action.News" method="execute">
+            <result name="success">/news.jsp</result>
+        </action>
+
+        <action name="search" class="com.example.proj.action.News" method="search">
+            <result name="success">/news.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+
     </package>
 
     <package name="api" namespace="/api" extends="rest-default">
         <action name="accounts/*" class="com.example.proj.rest.AccountsController">
             <param name="id">{1}</param>
         </action>
+        
     </package>
     
 

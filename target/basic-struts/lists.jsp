@@ -1,8 +1,8 @@
-<!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ taglib prefix="sx" uri="/struts-dojo-tags" %>
+<!DOCTYPE html>
 
 <html>
   <head>
@@ -46,11 +46,7 @@ pageEncoding="UTF-8" %>
         /><s:submit style="padding: 5px; background-color:#004C64; color: white; border: none;"/>
         </s:form>
 
-        
-         
         <table id="customers">
-            
-            
             <tr>
               <th>Name</th>
               <th>Username</th>
@@ -60,18 +56,15 @@ pageEncoding="UTF-8" %>
 
             <s:iterator  value="persons">  
                 <tr>
-                     
-                    
                   <td><s:property value="lastName"/>, <s:property value="firstName"/></td>
                   <td><s:property value="username"/></td>
                   <td><s:property value="email"/></td>
                   <td><s:property value="age"/></td>
-                
                 </tr>
-        </s:iterator>
-              </table> 
-        
+            </s:iterator>
+        </table> 
         </div>
+
         <p><a href="<s:url action='index' />" >Return to home page</a>.</p>  
     </body>
 </html>

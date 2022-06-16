@@ -16,6 +16,7 @@ pageEncoding="UTF-8" %> <%@ taglib prefix="s" uri="/struts-tags" %>
         <p><a href="<s:url action='list'/>">Display user list</a></p>   
 
         <p><a href="<s:url action='news'/>">View news</a></p>   
+        <p><a href="<s:url action='dictionary'/>">View Dictionary</a></p>   
       </main>
       <footer>
       </footer>

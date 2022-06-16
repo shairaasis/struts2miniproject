@@ -5,24 +5,26 @@ body {
 main {
 padding: 232px 200px;
 text-align: center;
+background: white;
 color: #00242f;
 }
 h1 {
     font-size: 60px;
 }
-/**.navbar {
+.navbar {
 overflow: hidden;
-background-color: #001e27;
+background-color: #004C64;
 position: sticky;
 position: -webkit-sticky;
 top: 0;
-}**/
+}
 .navbar a {
 float: right;
 display: block;
 color: white;
 text-align: center;
 padding: 14px 20px;
+text-decoration: none;
 }
 .navbar a.logo {
 color: white;

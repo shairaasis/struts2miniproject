@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * Basic Card */
+    .basic-card {
+        width:300px;
+        position: relative;
+        
+        -webkit-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.3);
+        -moz-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.3);
+        -o-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.3);
+        box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.3);
+    }
+    
+        .basic-card .card-content {
+            padding: 30px;
+        }
+
+        .basic-card .card-title {
+            font-size: 25px;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .basic-card .card-text {
+            line-height: 1.6;
+        }
+
+        .basic-card .card-link {
+            padding: 25px;
+            width: -webkit-fill-available;
+        }
+
+            .basic-card .card-link a {
+                text-decoration: none;
+                position: relative;
+                padding: 10px 0px;
+            }
+
+            .basic-card .card-link a:after {
+                top: 30px;
+                content: "";
+                display: block;
+                height: 2px;
+                left: 50%;
+                position: absolute;
+                width: 0;
+
+                -webkit-transition: width 0.3s ease 0s, left 0.3s ease 0s;
+                -moz-transition: width 0.3s ease 0s, left 0.3s ease 0s;
+                -o-transition: width 0.3s ease 0s, left 0.3s ease 0s;
+                transition: width 0.3s ease 0s, left 0.3s ease 0s;
+            }
+
+            .basic-card .card-link a:hover:after { 
+                width: 100%; 
+                left: 0; 
+            }
+    
+    
+    .basic-card-aqua {
+        background-image: linear-gradient(to bottom right, #00bfad, #99a3d4);
+    }
+
+        .basic-card-aqua .card-content, .basic-card .card-link a {
+            color: #fff;
+        }
+        
+        .basic-card-aqua .card-link {
+            border-top:1px solid #82c1bb;
+        }
+
+            .basic-card-aqua .card-link a:after {
+                background:#fff;
+            }
+
+
+      
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="category-name">Basic Cards</div> <br/>
+            
+        <div class="card-category-1">
+            
+            <div class="basic-card basic-card-aqua">
+                <div class="card-content">
+                    <span class="card-title">Card Title</span>
+                    <p class="card-text">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                    </p>
+                </div>
+
+                <div class="card-link">
+                    <a href="#" title="Read Full"><span>Read Full</span></a>
+                </div>
+            </div>
+            
+        </div>
+        
+</body>
+</html>
