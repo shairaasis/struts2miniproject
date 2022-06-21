@@ -16,33 +16,35 @@ public class News extends ActionSupport{
     String API_KEY = "176ef08c9d384ca084d7418c34cda295";
     private String searchPhrase, language, sortBy;
 
-    public String execute() throws Exception {String format = "yyyy-MM-dd";
-    Calendar calendar = Calendar.getInstance();
-    SimpleDateFormat dateFormat = new SimpleDateFormat(format);
-    String currentDate = dateFormat.format(calendar.getTime());
-    try {
+    public String execute() throws Exception {
 
-        URL url = new URL("https://newsapi.org/v2/everything?q=+" +getSearchPhrase() + "&searchIn=title,description&language="+getLanguage()+"&sortBy="+ getSortBy() +"&from=" + currentDate
-                + "&apiKey=" + API_KEY);
-        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-        conn.setRequestMethod("GET");
+        String format = "yyyy-MM-dd";
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat dateFormat = new SimpleDateFormat(format);
+        String currentDate = dateFormat.format(calendar.getTime());
+        try {
 
-        if (conn.getResponseCode() != 200) {
-            throw new RuntimeException("Failed : HTTP error code : "
-                    + conn.getResponseCode());
+            URL url = new URL("https://newsapi.org/v2/everything?q=+" +getSearchPhrase() + "&searchIn=title,description&language="+getLanguage()+"&sortBy="+ getSortBy() +"&from=" + currentDate
+                    + "&apiKey=" + API_KEY);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+
+            if (conn.getResponseCode() != 200) {
+                throw new RuntimeException("Failed : HTTP error code : "
+                        + conn.getResponseCode());
+            }
+
+            BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
+            String output;
+            while ((output = br.readLine()) != null) {
+                ObjectMapper mapper = new ObjectMapper();
+                newsResponse = mapper.readValue(output, NewsResponse.class);
+            }
+            conn.disconnect();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
-        BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
-        String output;
-        while ((output = br.readLine()) != null) {
-            ObjectMapper mapper = new ObjectMapper();
-            newsResponse = mapper.readValue(output, NewsResponse.class);
-        }
-        conn.disconnect();
-    } catch (Exception e) {
-        e.printStackTrace();
-    }
-    return SUCCESS;
+        return SUCCESS;
     }
 
     

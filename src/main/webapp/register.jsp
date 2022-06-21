@@ -7,7 +7,8 @@
     <title>Register</title>
   </head>
   <body>
-    <s:include value="navbar.jsp"/>
+    <!-- <s:include value="navbar.jsp"/> -->
+    <s:include value="navbar2.jsp"/>
     <div class="container">
     <h3>Register an account by completing this form.</h3>
 

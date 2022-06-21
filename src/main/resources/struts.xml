@@ -27,11 +27,16 @@
             
         </action>
 
-        <action name="Login" class="com.example.proj.action.Login" method="execute">
+        <action name="login" class="com.example.proj.action.Login" method="execute">
             <interceptor-ref name="defaultStack"/>
-            <result name="success">/profile.jsp</result>
+            <result name="success">/welcome.jsp</result>
             <result name="input">/login.jsp</result>
-            <result name="error">/login.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+
+        <action name="loginToken" class="com.example.proj.action.LoginToken">
+            <result name="success">/welcome.jsp</result>
+            <result name="error">/error.jsp</result>
         </action>
 
         <action name="list" class="com.example.proj.action.List" method="execute">
@@ -43,7 +48,7 @@
             <result name="error">/error.jsp</result>
         </action>
 
-        <action name="news" class="com.example.proj.action.News" method="execute">
+        <action name="news" class="com.example.proj.action.News">
             <result name="success">/news.jsp</result>
         </action>
 
@@ -52,8 +57,9 @@
             <result name="error">/error.jsp</result>
         </action>
 
-        <action name="dictionary" class="com.example.proj.action.Dictionary" method="execute">
+        <action name="dictionary" class="com.example.proj.action.Dictionary1">
             <result name="success">/dictionary.jsp</result>
+             <result name="error">/error.jsp</result>
         </action>
 
     </package>

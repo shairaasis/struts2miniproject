@@ -6,6 +6,7 @@ pageEncoding="UTF-8" %> <%@ taglib prefix="s" uri="/struts-tags" %>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Alta Sofia Institute</title>
     <link rel="stylesheet" href="css/styles.css">
+    <s:include value=""/>
   </head>
   <body>
       <s:include value="navbar.jsp"/>
